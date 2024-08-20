@@ -63,6 +63,7 @@ Your-repository-name/
    
 3. **Handling File Conflicts**: If a file with the same name already exists, the system generates a new file with a modified name.
    
-![image](https://github.com/user-attachments/assets/9030171f-7260-44fc-9921-69c674fa2dd3)
+![image](https://github.com/user-attachments/assets/9030171f-7260-44fc-9921-69c674fa2dd3) ![image](https://github.com/user-attachments/assets/5d70417a-2e35-40e9-b4de-a4527e7994b9)
+
 
 
