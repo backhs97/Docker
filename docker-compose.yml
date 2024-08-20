@@ -1,0 +1,48 @@
+version: '3.8'
+services:
+  node1:
+    build: .
+    volumes:
+      - ./sync_dir1:/app/sync_dir
+      - ./files_to_send:/app/files_to_send  # Make sure this directory exists on your host machine 
+      # Mount directory containing files to be synced
+    environment:
+      - NODE_NAME=node1
+      - PORT=5000
+    networks:
+      - my_network
+    command: sh -c "cp -n /app/files_to_send/* /app/sync_dir/ 2>/dev/null || true; python node.py" # Copy files to sync directory and start the Python script
+
+  node2:
+    build: .
+    volumes:
+      - ./sync_dir2:/app/sync_dir
+    environment:
+      - NODE_NAME=node2
+      - PORT=5000
+    networks:
+      - my_network
+
+  node3:
+    build: .
+    volumes:
+      - ./sync_dir3:/app/sync_dir
+    environment:
+      - NODE_NAME=node3
+      - PORT=5000
+    networks:
+      - my_network
+
+  node4:
+    build: .
+    volumes:
+      - ./sync_dir4:/app/sync_dir
+    environment:
+      - NODE_NAME=node4
+      - PORT=5000
+    networks:
+      - my_network
+
+networks:
+  my_network:
+    driver: bridge # Create a bridge network for inter-container communication
